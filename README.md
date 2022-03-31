@@ -6,9 +6,9 @@ A simple token server function to secure the Dolby.io API, suitable for Native M
 
   
 
-[![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dolbyio-samples/comms-sdk-platform-token-service.git)
+[![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=ttps://github.com/dolbyio-samples/comms-sdk-platform-token-service)
 
- 
+
 Click the deploy to Netlify button, authenticate with GitHub and then supply your mobile application's unique identifier* and your Dolby.io Consumer key and secret. These values will be used to setup the **Environment** variables on the Netlify server.   This configuration uses that unique app identifier as a gate for the web service.  All requests to this serverless endpoint will require the request to be a POST and contain a header called **appidentifier** that matches the values you entered for the environmental variable. 
 
   
