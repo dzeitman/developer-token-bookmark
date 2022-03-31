@@ -85,31 +85,15 @@ For web deployment, you'd deploy this code as a function hosted on the same doma
   
 ## Install
 
- If you followed along with the Click to deploy to Netlify, your token service should be live and running.  The code was also cloned to your GitHub Account - pull down that repo to continue developing the token server code. 
+ If you followed along with the Click to deploy to Netlify, your token service should be live and running.  The code was also cloned to your GitHub Account.
+ 
+ I you want to make further edits to the token service code- pull down the newly cloned repo to continue developing the token server code. 
  
 Run the following command to install the dependencies:
  
 ```bash
  npm install
 ```
-  
-
-Create a file called `.env` in you application folder and set your application key and secret that you got from your dolby.io dashboard.
-
-  
-
-  
-
-APP_IDENTIFIER=<YOUR_APP_IDENTIFIER>
-
-  
-
-CONSUMER_KEY=<YOUR_CONSUMER_KEY_HERE>
-
-  
-
-CONSUMER_SECRET=<YOUR_CONSUMER_SECRET_HERE>
-
   
 
 ## Run
