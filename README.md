@@ -133,4 +133,4 @@ Run the Netlify live server with the command :
 npm run live
 ```
 *This deploys a preview of the project and a tunnel to push live changes to that preview. 
-You can make a change and refresh your site to see the results. *
+You can make a change and refresh your site to see the results.*
