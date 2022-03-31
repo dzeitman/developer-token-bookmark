@@ -2,7 +2,7 @@
 
   
 
-A simple token server function to secure the Dolby.io API, suitable for Native Mobile (iOS and Android) and web applcations. We'll use Netlify for this example.  This sample application creates a simple token server to secure your application calls to Dolby.io API.
+A simple token server function to secure the Dolby.io API, suitable for Native Mobile (iOS and Android) and web applcations. We'll use Netlify for this example.  This sample application creates a simple token server to secure your application calls to the Dolby.io API.
 
   
 
@@ -11,29 +11,16 @@ A simple token server function to secure the Dolby.io API, suitable for Native M
 
 Click the deploy to Netlify button, authenticate with GitHub and then supply your mobile application's unique **identifier** and your Dolby.io Consumer key and secret. These values will be used to setup the **Environment** variables on the Netlify server.   This configuration uses that unique app identifier as a gate for the web service.  All requests to this serverless endpoint will require the request to be a POST and contain a header called **appidentifier** that matches the values you entered for the environmental variable. 
 
-  
-
 Suggested Identifiers:
 
-  
-
 iOS:
-
-We use'll use the bundle identifier
-
-  
-
+Use the bundle identifier.
+ 
 Android:
-
-  
-
-We use'll use the package identifier
-
-  
+Use the package identifier.
 
 ## How to use the unique identifier to help secure the token service
 
-  
 
 Within your native application code you'll use a POST request with the SAME appidentifier that you configured for this token service in the request headers. In the case of iOS native apps, you'll use the bundle identifier which is unique to each app. Similarly for Android, you'll use the package identifier.
 
