@@ -87,7 +87,7 @@ For web deployment, you'd deploy this code as a function hosted on the same doma
 
  If you followed along with the Click to deploy to Netlify, your token service should be live and running.  The code was also cloned to your GitHub Account.
  
- I you want to make further edits to the token service code- pull down the newly cloned repo to continue developing the token server code. 
+ If you want to make further edits to the token service code- pull down the newly cloned repo to continue developing the token server code. 
  
 Run the following command to install the dependencies:
  
