@@ -77,6 +77,63 @@ Within your native application code you'll use a POST request with the SAME appi
     }
     
 ```
+
+```kotlin
+// MainActivity.kt  Android Example
+// this function fetches the token by a post request with the package identifier, 
+// if matching on the service then a token is returned.
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Fetch access token.
+        fetchSecureToken { accessToken ->
+            // Voxeet SDK OAuth initialization.
+            VoxeetSDK.initialize(accessToken) { _, callback ->
+                fetchSecureToken { accessToken ->
+                    val token = accessToken.takeIf { it.isNotEmpty() } ?: return@fetchSecureToken
+                    // Call the SDK’s refresh closure with the new token
+                    callback.ok(token)
+                }
+            }
+        }
+    }
+
+    private fun fetchSecureToken(callback: (token: String) -> Unit) {
+        val serverURL = "<ENTER THE URL TO YOUR DEPLOYED TOKEN SERVICE>"
+        // using Volley to initialize a queue
+        val queue = Volley.newRequestQueue(this@MainActivity)
+
+        // setting up secure POST request with package identifier in header
+        var request = object : JsonObjectRequest(
+            Request.Method.POST, serverURL, null,
+            Response.Listener { response ->
+                Log.d("MainActivity", "Access token is: " + response.get("access_token"))
+            },
+            Response.ErrorListener {
+                Log.e("MainActivity", "Request failed: ${it.localizedMessage}")
+            }) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers = HashMap<String, String>()
+                headers["appidentifier"] = applicationContext.packageName
+                return headers
+            }
+        }
+
+        queue.add(request)
+    }
+}
+```
+
+For this Android fetch request example, we used the [Volley HTTP networking library](https://google.github.io/volley/). 
+
+In order to test, make sure to add the Volley dependency in your ``build.gradle(:app)`` file.
+```gradle
+dependencies {
+    implementation 'com.android.volley:volley:${version}'
+}
+```
   
 
 For web deployment, you'd deploy this code as a function hosted on the same domain of the web app, use "web" as the package identifier and the function will use the hosted domain for the identifier. Your web application would be deployed to the WWW folder in this example.
