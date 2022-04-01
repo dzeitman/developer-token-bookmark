@@ -24,6 +24,8 @@ Use the package identifier.
 
 Within your native application code you'll use a POST request with the SAME appidentifier that you configured for this token service in the request headers. In the case of iOS native apps, you'll use the bundle identifier which is unique to each app. Similarly for Android, you'll use the package identifier.
 
+## iOS
+
 ```Swift
 // AppDelegate.swift  iOS Example
 // this function fetches the token by a post request with the app identifier, 
@@ -77,6 +79,7 @@ Within your native application code you'll use a POST request with the SAME appi
     }
     
 ```
+## Android
 
 ```kotlin
 // MainActivity.kt  Android Example
@@ -134,9 +137,9 @@ dependencies {
     implementation 'com.android.volley:volley:${version}'
 }
 ```
-  
+## Web  
 
-For web deployment, you'd deploy this code as a function hosted on the same domain of the web app, use "web" as the package identifier and the function will use the hosted domain for the identifier. Your web application would be deployed to the WWW folder in this example.
+For web deployment, you'd deploy this code as a function hosted on the same domain of the web app, use "web" as the package identifier value and the function will use the hosted domain for the identifier. Your web application would be deployed to the WWW folder in this example.
 
   
   
