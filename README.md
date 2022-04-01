@@ -1,4 +1,4 @@
-# GSG Dolby.io Platform Token Server
+# Dolby.io Platform Token Service
 
   
 
