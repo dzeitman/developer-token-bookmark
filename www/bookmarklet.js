@@ -1,4 +1,4 @@
-javascript: (() => {
+javascript:(() => {
     let delay = ms => new Promise(res => setTimeout(res, ms)); let button = document.querySelectorAll('button')[2];
     button.addEventListener('click', async (event) => {
         let done = await delay(3000);
