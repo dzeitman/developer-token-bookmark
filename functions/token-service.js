@@ -13,6 +13,8 @@ const CONSUMER_SECRET = process.env.CONSUMER_SECRET;
 const credentials = new Buffer.from(
   CONSUMER_KEY + ':' + CONSUMER_SECRET).toString('base64');
 
+console.log(process.env)
+console.log(credentials)
 const url = 'https://session.voxeet.com/v1/oauth2/token';
 
 const config = {
@@ -48,6 +50,8 @@ async function fetchToken() {
 
 exports.handler = async (event) => {
   let isValid = false;
+  
+  console.log(event)
 
   // Only allow POST
   if (event.httpMethod !== "POST") {
@@ -67,10 +71,10 @@ exports.handler = async (event) => {
     }
   }
 
- 
+console.log(event.headers.appidentifier)
 
   // restrict to allow only from same domain host url
-  if (event.headers.appidentifier !== APP_IDENTIFIER) {
+  if (event.headers.appidentifier != APP_IDENTIFIER) {
     isValid = false;
   } else {
     isValid = true;
@@ -82,6 +86,7 @@ exports.handler = async (event) => {
   async function sendResonse(isValid) {
     if (isValid == true) {
       let response = await fetchToken();
+      console.log(response)
       return response;
     } else {
       return { statusCode: 405, body: "Method Not Allowed" };
